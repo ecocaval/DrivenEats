@@ -1,19 +1,21 @@
-// Main dishes section
 const dishes = document.querySelectorAll('.dish');
 
-// function starts when users click any main dish
+// function starts when users click any dish
 $(dishes).click(
     function() {      
-        // look_for_check_mark_in(this.className[0]) 
+        // gets the class of the dish being clicked
         let class_name = this.className.slice(5);
+        // used to control if this type of dish was marked before
         let found_check_marks = false;
 
-        console.log(class_name);
+        // console.log(class_name);
 
         $(`.${class_name}`).each(
-            function(index, element) {
+            function(_, element) {
                 if(element.classList.value.includes('dish_box_check')) {
-                    found_check_marks = true;
+                    $(element).find(".dish_check").removeClass('dish_check_appear');
+                    $(element).find(".dish_check").addClass('dish_check_disappear');
+                    $(element).removeClass('dish_box_check');
                 }
             }
         )        
@@ -32,4 +34,3 @@ $(dishes).click(
         }
     }
 );
-z
