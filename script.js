@@ -1,5 +1,5 @@
 // function starts when users click any main dish
-$(document.querySelectorAll('.main_dish')).click(
+$(document.querySelectorAll('.dish')).click(
     function() {        
         if(!($(this).find(".dish_check").attr("class").includes('dish_check_appear'))) {
             $(this).find(".dish_check").addClass('dish_check_appear');

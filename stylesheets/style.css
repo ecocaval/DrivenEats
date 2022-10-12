@@ -62,7 +62,7 @@ main h3 {
     overflow-x: scroll;
 }
 
-.main_dish, .drink_dish, .dessert_dish {
+.dish{
     position: relative;
     display: flex;
     flex-direction: column;
