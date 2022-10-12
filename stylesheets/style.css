@@ -38,7 +38,7 @@ header h2 {
 }
 
 main {
-    margin-top: 123px;
+    margin: 123px 0px;
     overflow: hidden;
 }
 
@@ -62,6 +62,7 @@ main h3 {
 }
 
 .dish {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -102,6 +103,21 @@ main h3 {
     font-size: 16px;
     font-weight: 400;
     color: #000000;
+}
+
+.main_dish {
+    border: 4px solid #32B72F;
+}
+
+.dish_check {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+}
+
+.dish_check img {
+    height: 15px;
+    width: 15px;
 }
 
 footer {
