@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    background-color: #EEEEEE;
+}
+
+header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 92px;
+    padding: 0px 21px;
+    background-color: #CF2B2B;
+    box-shadow: 0px 4px 4px rgba(68, 68, 68, 0.488);
+}
+
+header h1 {
+    font-family: 'Righteous', cursive;
+    font-size: 44px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+header h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+main {
+    margin-top: 123px;
+    overflow: hidden;
+}
+
+main h3 {
+    font-family: Righteous;
+    font-size: 26px;
+    font-weight: 400;
+    color: #333333;
+    margin-left: 19px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.dish_section {
+    display: flex;
+    height: 216px;
+    margin-bottom: 30px;
+    background-color: red;
+    overflow-x: scroll;
+}
+
+.dish {
+    background-color: blue;
+    width: 216px;
+
+    
+}
