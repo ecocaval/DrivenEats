@@ -9,6 +9,7 @@ body {
 }
 
 header {
+    z-index: 1;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -105,22 +106,32 @@ main h3 {
     color: #000000;
 }
 
+/*Reponsive js section - begin*/
+
 .main_dish {
     border: 4px solid #32B72F;
 }
 
-.dish_check {
-    position: absolute;
-    bottom: 2px;
-    right: 4px;
-}
 
 .dish_check img {
     height: 15px;
     width: 15px;
 }
 
+.dish_check_disappear {
+    display: none;
+}
+
+.dish_check_appear {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+}
+
+/*Reponsive js section - end*/
+
 footer {
+    z-index: 1;
     box-sizing: border-box;
     position: fixed;
     display: flex;
