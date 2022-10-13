@@ -14,7 +14,7 @@ $(dishes).click(
             function(_, element) {
                 if(element.classList.value.includes('dish_box_check')) {
                     $(element).find(".dish_check").removeClass('dish_check_appear');
-                    $(element).find(".dish_check").addClass('dish_check_disappear');
+                    $(element).find(".dish_check").addClass('display_none');
                     $(element).removeClass('dish_box_check');
                 }
             }
@@ -24,17 +24,22 @@ $(dishes).click(
         if(!found_check_marks) {     
             // adds check mark to selector
             $(this).find(".dish_check").addClass('dish_check_appear');
-            $(this).find(".dish_check").removeClass('dish_check_disappear');
+            $(this).find(".dish_check").removeClass('display_none');
             $(this).addClass('dish_box_check');     
         } else {
             // removes check mark from selector
             $(this).find(".dish_check").removeClass('dish_check_appear');
-            $(this).find(".dish_check").addClass('dish_check_disappear');
+            $(this).find(".dish_check").addClass('display_none');
             $(this).removeClass('dish_box_check');
         }
 
         //check if last button can be completed
         console.log(check_for_final_button());
+
+        if(check_for_final_button()) {
+            $('.button_not_ready').addClass("display_none");
+            $('.button_ready').removeClass("display_none");
+        }
     }
 );
 
