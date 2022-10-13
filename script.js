@@ -32,5 +32,33 @@ $(dishes).click(
             $(this).find(".dish_check").addClass('dish_check_disappear');
             $(this).removeClass('dish_box_check');
         }
+
+        //check if last button can be completed
+        console.log(check_for_final_button());
     }
 );
+
+function check_for_final_button() {
+
+    let class_has_check_mark = [false,false,false];
+    let can_change_button = true;
+
+    const all_classes_to_check = ['main_dish', 'drink_dish', 'dessert_dish'];
+
+    for (let i = 0; i < all_classes_to_check.length; i++) {
+        $(`.${all_classes_to_check[i]}`).each(
+            function(_, element) {
+                if(element.classList.value.includes('dish_box_check')) {
+                    class_has_check_mark[i] = true;
+                    return;
+                }
+            }
+        )
+    }
+
+    for(let i = 0; i < class_has_check_mark.length; i++) {
+        if(class_has_check_mark[i] === false) can_change_button = false;
+    }
+
+    return can_change_button;
+}
