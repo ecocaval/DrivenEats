@@ -122,7 +122,7 @@ p {
     display: none;
 }
 
-.dish_check_appear {
+.dish_check {
     position: absolute;
     bottom: 2px;
     right: 4px;
@@ -146,7 +146,7 @@ footer {
 }
 
 
-footer .button_not_ready{
+footer .order_button{
     height: 61px;
     width: 364px;
     border-radius: 50px;
@@ -160,16 +160,6 @@ footer .button_not_ready{
     color: #FFFFFF;
 }
 
-footer .button_ready{
-    height: 61px;
-    width: 364px;
-    border-radius: 50px;
-    border: 0px;
+footer .order_button_ready{
     background-color: #32B72F;
-    font-family: 'Roboto';
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 23px;
-    letter-spacing: 0.018em;    
-    color: #FFFFFF;
 }
