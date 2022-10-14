@@ -118,10 +118,6 @@ p {
     width: 15px;
 }
 
-.display_none {
-    display: none;
-}
-
 .dish_check {
     position: absolute;
     bottom: 2px;
@@ -145,6 +141,64 @@ footer {
     box-shadow: 0px 0px 10px rgba(68, 68, 68, 0.488);
 }
 
+footer .confirm_section {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    top: calc(50% - 353px/2);
+    left: auto;
+    background-color: #50D074;
+    box-shadow: 0px 0px 10px rgba(68, 68, 68, 0.488);;
+    width: 377px;
+    height: 353px;
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+
+footer .confirm_section span {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+footer .confirm_section h5 {
+    font-weight: 700;
+    margin: 0px auto;
+    margin-bottom: 15px;
+    
+}
+
+footer p {
+    font-weight: 400;
+}
+
+footer p, footer .confirm_section h5 {
+    font-family: 'Roboto';
+    color: #FFFFFF;
+    font-size: 22px;
+}
+
+footer .confirm_section .final_price p {
+    font-weight: 700;
+}
+
+footer .last_order_button{
+    height: 61px;
+    width: 364px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    border: 0px;
+    background-color: #FFFFFF;
+    font-family: 'Roboto';
+    font-size: 22px;
+    font-weight: 700;
+    color: #50D074;
+}
+
 
 footer .order_button{
     height: 61px;
@@ -162,4 +216,8 @@ footer .order_button{
 
 footer .order_button_ready{
     background-color: #32B72F;
+}
+
+.display_none {
+    display: none !important;
 }
