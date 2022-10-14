@@ -72,9 +72,18 @@ function hold_order_button() {
 
 // releases last screen from order
 function release_confirm_section(){
+    // checks the names of the meals that are selected
+    const meals_selected = check_for_meals_selected();
+
+    const meals_names = Array.from(document.querySelectorAll('.last_meal_name')); 
+
     const order_button = document.querySelector('.order_button');
     const confirm_section = document.querySelector('.confirm_section');
     const transparent_background = document.querySelector('.transparent_background');
+
+    for(let i = 0; i < meals_selected.length; i++) {
+        meals_names[i].innerHTML = meals_selected[i];
+    }
 
     if(order_button.classList.contains('order_button_ready')){
         confirm_section.classList.remove('display_none');
@@ -91,10 +100,35 @@ function cancel_order(){
 }
 
 function ask_name_and_adress(){
-    let name = prompt("Por favor digite o seu nome: ");
-    let addres = prompt("Por favor digite o seu endereço: ");
+    // checks the names of the meals that are selected
+    const meals_selected = check_for_meals_selected();
+    
+    const name = prompt("Por favor digite o seu nome: ");    
+    const addres = prompt("Por favor digite o seu endereço: ");
 
-    console.log(`nome: ${name}\nendereço: ${addres}`);
+    let text_to_send = `Olá, gostaria de fazer o pedido:
+    - Prato: ${meals_selected[0]}
+    - Bebida: ${meals_selected[1]}
+    - Sobremesa: ${meals_selected[2]}
+    Total: R$ 27.70
+    
+    Nome: ${name}
+    Endereço: ${addres}`;
+
+    text_to_send = encodeURIComponent(text_to_send);
+
+    window.open(`https://wa.me/554891427605?text=${text_to_send}`);
+}
+
+// checks the names of the meals that are selected
+function check_for_meals_selected() {
+    let meals_selected_names = [];
+    for(let i = 0; i < dishes.length; i++) {
+        if(dishes[i].classList.contains('dish_box_check')) {
+            meals_selected_names.push(dishes[i].childNodes[3].innerHTML);
+        }
+    }
+    return meals_selected_names;
 }
 
 
