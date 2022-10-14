@@ -90,4 +90,11 @@ function cancel_order(){
     transparent_background.classList.add('display_none');
 }
 
+function ask_name_and_adress(){
+    let name = prompt("Por favor digite o seu nome: ");
+    let addres = prompt("Por favor digite o seu endereço: ");
+
+    console.log(`nome: ${name}\nendereço: ${addres}`);
+}
+
 
