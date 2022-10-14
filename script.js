@@ -70,5 +70,24 @@ function hold_order_button() {
     }
 }
 
+// releases last screen from order
+function release_confirm_section(){
+    const order_button = document.querySelector('.order_button');
+    const confirm_section = document.querySelector('.confirm_section');
+    const transparent_background = document.querySelector('.transparent_background');
+
+    if(order_button.classList.contains('order_button_ready')){
+        confirm_section.classList.remove('display_none');
+        transparent_background.classList.remove('display_none');
+    }
+}
+
+function cancel_order(){
+    const confirm_section = document.querySelector('.confirm_section');
+    const transparent_background = document.querySelector('.transparent_background');
+
+    confirm_section.classList.add('display_none');
+    transparent_background.classList.add('display_none');
+}
 
 

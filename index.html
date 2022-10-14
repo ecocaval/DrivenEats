@@ -112,6 +112,9 @@
         </div>
     </main>
     <footer>
+        <div class="transparent_background display_none">
+        </div>
+
         <div class="confirm_section display_none">
             <h5>Confirme seu pedido</h5>
             <span>
@@ -137,10 +140,10 @@
 
             <button class="last_order_button">Tudo certo, pode pedir!</button>
 
-            <p class="cancel_order">Cancelar</p>
+            <p class="cancel_order" onclick="cancel_order()">Cancelar</p>
         </div>
 
-        <button class="order_button">Selecione os 3 itens <br> para fechar o pedido</button>
+        <button class="order_button" onclick="release_confirm_section()">Selecione os 3 itens <br> para fechar o pedido</button>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
