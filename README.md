@@ -1,11 +1,5 @@
 # <p align = "center"> Web Mobile DrivenEats</p>
 
-<br/>
-
-<p align = "center"> <img src="![ScreenShot](https://user-images.githubusercontent.com/95882643/195970813-4a997ef8-ab2f-4396-b84a-b2d1119339e6.PNG)" /></p>
-
-</br>
-
 ## ✏️ Description
 <p align="justify" >This project was done in the third week of the Full Stack Driven course. An average of 15 hours were put into the website, the main goals were to train javascript web.  </p>
 
