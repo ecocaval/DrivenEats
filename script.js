@@ -59,6 +59,7 @@ function check_if_order_is_over() {
 function release_order_button() {
     const order_button = document.querySelector('.order_button');
     order_button.classList.add('order_button_ready');
+    order_button.innerHTML = 'Fechar o pedido';
 }
 
 // holds final orden button
@@ -67,6 +68,7 @@ function hold_order_button() {
     
     if(order_button.classList.contains('order_button_ready')) {
         order_button.classList.remove('order_button_ready');
+        order_button.innerHTML = 'Selecione os 3 itens \n para fechar o pedido';
     }
 }
 
