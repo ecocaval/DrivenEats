@@ -43,8 +43,8 @@ function search_and_unselect_selected_meals(dishes_to_look) {
 
 // adds or removes green check in dish div and green check image
 function add_remove_check(meal) {
-    meal.classList.toggle('dish_box_check'); // green box in meal div
-    meal.childNodes[9].classList.toggle('display_none'); // green check
+    meal.classList.toggle('dish_box_check'); 
+    meal.childNodes[9].classList.toggle('display_none'); 
 }
 
 // checks if there are 3 meals selected
@@ -55,7 +55,6 @@ function check_if_order_is_over() {
             meals_selected++;
         }
     }
-    // the order is only considered finished if 3 meals are selected
     return (meals_selected === 3);
 }
 
@@ -108,7 +107,7 @@ function release_confirm_section(){
 
 /*
     Changes the inner text from the html elements from the last confirmation 
-    screen the parameters are taken from the meals that were selected
+    screen, the parameters are taken from the meals that were selected
 */
 function change_confirm_section_param(meals_names_selected, meals_names, meals_prices_selected, meals_prices){
     change_meals_names(meals_names_selected, meals_names);
@@ -131,7 +130,6 @@ function change_meals_prices(meals_prices_selected, meals_prices){
 
 // calculates the order total price by adding the dishes selected prices
 function calculate_final_order_total_price(meals_prices_selected){
-        // calculate the total price of the meal
         let total_price = 0;
 
         for(let i in meals_prices_selected) {
@@ -162,28 +160,31 @@ function ask_name_and_adress(){
     
     // gets user name and adress
     const name = prompt("Por favor digite o seu nome: ");    
-    const addres = prompt("Por favor digite o seu endereço: ");
+    const address = prompt("Por favor digite o seu endereço: ");
 
-    // creates a string containing all order info
-    let text_to_send = `Olá, gostaria de fazer o pedido:
-    - Prato: ${meals_names_selected[0]}
-    - Bebida: ${meals_names_selected[1]}
-    - Sobremesa: ${meals_names_selected[2]}
-    Total: R$ ${calculate_final_order_total_price(meals_prices_selected)}
+    send_whatsapp_message(meals_names_selected, meals_prices_selected, name, address);
+}
+
+function send_whatsapp_message(meals_names_selected, meals_prices_selected, name, address){
+        // creates a string containing all order info
+        let text_to_send = `Olá, gostaria de fazer o pedido:
+        - Prato: ${meals_names_selected[0]}
+        - Bebida: ${meals_names_selected[1]}
+        - Sobremesa: ${meals_names_selected[2]}
+        Total: R$ ${calculate_final_order_total_price(meals_prices_selected)}
+        
+        Nome: ${name}
+        Endereço: ${address}`;
     
-    Nome: ${name}
-    Endereço: ${addres}`;
-
-    // converts the string to a text that can be sent through a whastapp link
-    text_to_send = encodeURIComponent(text_to_send);
-
-    // opens the whatsapp website with the message containing all order info
-    window.open(`https://wa.me/554891427605?text=${text_to_send}`);
+        // converts the string to a text that can be sent through a whastapp link
+        text_to_send = encodeURIComponent(text_to_send);
+    
+        // opens the whatsapp website with the message containing all order info
+        window.open(`https://wa.me/554891427605?text=${text_to_send}`);
 }
 
 // checks the names of the meals that are selected
 function check_for_meals_selected() {
-    // creates empty arrays for storing selected meals names and prices
     let meals_selected_names = [];
     let meals_selected_prices = [];
 
@@ -198,9 +199,6 @@ function check_for_meals_selected() {
                -> replace to change ',' to '.', since this number will be used as variable */
             meals_selected_prices.push((dishes[i].childNodes[7].innerHTML.slice(3)).replace(",",".")); 
         }
-    }    
-    // creates a matrix with all meals selected info, this variable will be the function return
-    const meals_info = [meals_selected_names, meals_selected_prices];   
-
-    return meals_info;
+    }     
+    return [meals_selected_names, meals_selected_prices];
 }
