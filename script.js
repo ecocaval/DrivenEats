@@ -72,23 +72,57 @@ function hold_order_button() {
 
 // releases last screen from order
 function release_confirm_section(){
-    // checks the names of the meals that are selected
-    const meals_selected = check_for_meals_selected();
+    // checks the names and prices of the meals that are selected 
+    // [0] names, [1] prices
+    const meals_names_selected = check_for_meals_selected()[0];
+    const meals_prices_selected = check_for_meals_selected()[1];
 
-    const meals_names = Array.from(document.querySelectorAll('.last_meal_name')); 
-
+    // arrays containing all html tags elements
+    const meals_names = Array.from(document.querySelectorAll('.last_meal_name'));
+    const meals_prices = Array.from(document.querySelectorAll('.last_meal_price')); 
+    const meal_total_price_select = document.querySelector('.last_meal_total_price');
     const order_button = document.querySelector('.order_button');
     const confirm_section = document.querySelector('.confirm_section');
     const transparent_background = document.querySelector('.transparent_background');
 
-    for(let i = 0; i < meals_selected.length; i++) {
-        meals_names[i].innerHTML = meals_selected[i];
-    }
+    // changes the last screen parameters based on the meals selected
+    change_confirm_section_param(meals_names_selected, meals_names, meals_prices_selected, meals_prices);
+
+     // changes the total price value in the HTML
+    meal_total_price_select.innerHTML = calculate_order_total_price(meals_prices_selected, );
 
     if(order_button.classList.contains('order_button_ready')){
         confirm_section.classList.remove('display_none');
         transparent_background.classList.remove('display_none');
     }
+}
+
+function change_confirm_section_param(meals_names_selected, meals_names, meals_prices_selected, meals_prices){
+    change_meals_names(meals_names_selected, meals_names);
+    change_meals_prices(meals_prices_selected, meals_prices)
+}
+
+function change_meals_names(meals_names_selected, meals_names){
+    for(let i = 0; i < meals_names_selected.length; i++) {
+        meals_names[i].innerHTML = meals_names_selected[i];
+    }
+}
+
+function change_meals_prices(meals_prices_selected, meals_prices){
+    for(let i = 0; i < meals_prices_selected.length; i++) {
+        meals_prices[i].innerHTML = meals_prices_selected[i];
+    }
+}
+
+function calculate_order_total_price(meals_prices_selected){
+        // calculate the total price of the meal
+        let total_price = 0;
+        for(let i = 0; i < meals_prices_selected.length; i++) {
+            total_price += Number(meals_prices_selected[i]);
+        }
+        total_price = total_price.toFixed(2); 
+        
+        return total_price;        
 }
 
 function cancel_order(){
@@ -100,16 +134,16 @@ function cancel_order(){
 }
 
 function ask_name_and_adress(){
-    // checks the names of the meals that are selected
-    const meals_selected = check_for_meals_selected();
+    // checks the names of the meals that are selected [0] names, [1] prices
+    const meals_names_selected = check_for_meals_selected()[0];
     
     const name = prompt("Por favor digite o seu nome: ");    
     const addres = prompt("Por favor digite o seu endereço: ");
 
     let text_to_send = `Olá, gostaria de fazer o pedido:
-    - Prato: ${meals_selected[0]}
-    - Bebida: ${meals_selected[1]}
-    - Sobremesa: ${meals_selected[2]}
+    - Prato: ${meals_names_selected[0]}
+    - Bebida: ${meals_names_selected[1]}
+    - Sobremesa: ${meals_names_selected[2]}
     Total: R$ 27.70
     
     Nome: ${name}
@@ -123,12 +157,19 @@ function ask_name_and_adress(){
 // checks the names of the meals that are selected
 function check_for_meals_selected() {
     let meals_selected_names = [];
+    let meals_selected_prices = [];
+
     for(let i = 0; i < dishes.length; i++) {
         if(dishes[i].classList.contains('dish_box_check')) {
             meals_selected_names.push(dishes[i].childNodes[3].innerHTML);
+            meals_selected_prices.push((dishes[i].childNodes[7].innerHTML.slice(3)).replace(",","."));
+            
         }
-    }
-    return meals_selected_names;
+    }    
+    // creates a matrix with all meals selected info
+    const meals_info = [meals_selected_names, meals_selected_prices];   
+
+    return meals_info;
 }
 
 
