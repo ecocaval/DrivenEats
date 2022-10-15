@@ -7,12 +7,13 @@ function meal_clicked(meal) {
     const dish_option = meal.classList[1];
     const meal_is_clicked = meal.classList.contains('dish_box_check');
 
+    // creates a variable containing all the dishes belonged to the same class  
     const option_dishes = Array.from(document.querySelectorAll(`.${dish_option}`));
 
     // checks if current meal is already clicked, if not, enters the condition
     if(!meal_is_clicked) {
         // looks for other meals of the same type that are selected
-        look_for_selected_meals(option_dishes);
+        search_and_unselect_selected_meals(option_dishes);
     }
     
     // adds or removes green check in dish div and green check image
@@ -28,7 +29,7 @@ function meal_clicked(meal) {
 }
 
 // looks for meals of the same type that are selected, then unselect them
-function look_for_selected_meals(dishes_to_look) {
+function search_and_unselect_selected_meals(dishes_to_look) {
     for(let i in dishes_to_look) {
         // checks if dish is selected looking for the selected box class
         if(dishes_to_look[i].classList.contains('dish_box_check')) {
@@ -182,19 +183,24 @@ function ask_name_and_adress(){
 
 // checks the names of the meals that are selected
 function check_for_meals_selected() {
+    // creates empty arrays for storing selected meals names and prices
     let meals_selected_names = [];
     let meals_selected_prices = [];
 
-    for(let i = 0; i < dishes.length; i++) {
+    // goes through all the meals in the page looking for the selected ones, than grabs it's prices
+    for(let i in dishes) {
         if(dishes[i].classList.contains('dish_box_check')) {
-            meals_selected_names.push(dishes[i].childNodes[3].innerHTML);
-            meals_selected_prices.push((dishes[i].childNodes[7].innerHTML.slice(3)).replace(",","."));
+            // childNodes[3] to select dish_section h4
+            meals_selected_names.push(dishes[i].childNodes[3].innerHTML);             
+             
+            /* -> childNodes[7] to select dish_section div .price 
+               -> slice(3) to remove 'R$ '
+               -> replace to change ',' to '.', since this number will be used as variable */
+            meals_selected_prices.push((dishes[i].childNodes[7].innerHTML.slice(3)).replace(",",".")); 
         }
     }    
-    // creates a matrix with all meals selected info
+    // creates a matrix with all meals selected info, this variable will be the function return
     const meals_info = [meals_selected_names, meals_selected_prices];   
 
     return meals_info;
 }
-
-
