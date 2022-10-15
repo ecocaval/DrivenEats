@@ -1,7 +1,14 @@
 # <p align = "center"> Web Mobile DrivenEats</p>
 
-<p align = "center"> <img src="(https://user-images.githubusercontent.com/95882643/195970697-29e8b00f-2c01-45ed-94f6-a9992be32ac0.PNG)"/></p>
+<p align = "center">
+<img src="https://img.shields.io/badge/author-luanalessa-white?style=flat-square" />
+<img src="https://img.shields.io/github/languages/count/luanalessa/projeto2-instagram?color=white&style=flat-square" />
+</br>
+<br/>
 
+<p align = "center"> <img src="https://user-images.githubusercontent.com/72531277/195154939-7c243ce9-0050-4a72-8350-1708ce797174.png" /></p>
+
+</br>
 
 ## ✏️ Description
 <p align="justify" >This project was done in the third week of the Full Stack Driven course. An average of 15 hours were put into the website, the main goals were to train javascript web.  </p>
