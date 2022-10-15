@@ -1,7 +1,6 @@
 # <p align = "center"> Web Mobile DrivenEats</p>
 
-<p align = "center"> <img src="![project_pic](https://user-images.githubusercontent.com/95882643/195970697-29e8b00f-2c01-45ed-94f6-a9992be32ac0.PNG)
-" /></p>
+<p align = "center"> <img src="(https://user-images.githubusercontent.com/95882643/195970697-29e8b00f-2c01-45ed-94f6-a9992be32ac0.PNG)"/></p>
 
 
 ## ✏️ Description
