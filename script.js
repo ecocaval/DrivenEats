@@ -30,11 +30,11 @@ function meal_clicked(meal) {
 
 // looks for meals of the same type that are selected, then unselect them
 function search_and_unselect_selected_meals(dishes_to_look) {
-    for(let i in dishes_to_look) {
+    for(let dish_index in dishes_to_look) {
         // checks if dish is selected looking for the selected box class
-        if(dishes_to_look[i].classList.contains('dish_box_check')) {
+        if(dishes_to_look[dish_index].classList.contains('dish_box_check')) {
             // adds or removes green check in dish div and green check mark
-            add_remove_check(dishes_to_look[i]);
+            add_remove_check(dishes_to_look[dish_index]);
             // breaks the function since just only one meal can be selected
             break;
         }
@@ -50,8 +50,8 @@ function add_remove_check(meal) {
 // checks if there are 3 meals selected
 function check_if_order_is_over() {
     let meals_selected = 0;
-    for(let i in dishes) {
-        if(dishes[i].classList.contains('dish_box_check')) {
+    for(let dish_index in dishes) {
+        if(dishes[dish_index].classList.contains('dish_box_check')) {
             meals_selected++;
         }
     }
@@ -116,15 +116,15 @@ function change_confirm_section_param(meals_names_selected, meals_names, meals_p
 
 // changes the inner text from the html elements containing the meals names in the last confirmation screen
 function change_meals_names(meals_names_selected, meals_names){
-    for(let i in meals_names_selected) {
-        meals_names[i].innerHTML = meals_names_selected[i];
+    for(let meal_name_index in meals_names_selected) {
+        meals_names[meal_name_index].innerHTML = meals_names_selected[meal_name_index];
     }
 }
 
 // changes the inner text from the html elements containing the meals prices in the last confirmation screen
 function change_meals_prices(meals_prices_selected, meals_prices){
-    for(let i in meals_prices_selected) {
-        meals_prices[i].innerHTML = meals_prices_selected[i];
+    for(let meal_price_index in meals_prices_selected) {
+        meals_prices[meal_price_index].innerHTML = meals_prices_selected[meal_price_index];
     }
 }
 
@@ -132,9 +132,9 @@ function change_meals_prices(meals_prices_selected, meals_prices){
 function calculate_final_order_total_price(meals_prices_selected){
         let total_price = 0;
 
-        for(let i in meals_prices_selected) {
+        for(let meal_price_index in meals_prices_selected) {
             // the meals_prices array has string elements, so we must convert it
-            total_price += Number(meals_prices_selected[i]);
+            total_price += Number(meals_prices_selected[meal_price_index]);
         }
         // controls the quantity of decimal numbers being displayed
         total_price = total_price.toFixed(2); 
@@ -189,15 +189,15 @@ function check_for_meals_selected() {
     let meals_selected_prices = [];
 
     // goes through all the meals in the page looking for the selected ones, than grabs it's names and prices
-    for(let i in dishes) {
-        if(dishes[i].classList.contains('dish_box_check')) {
+    for(let dish_index in dishes) {
+        if(dishes[dish_index].classList.contains('dish_box_check')) {
             // childNodes[3] to select dish_section h4
-            meals_selected_names.push(dishes[i].childNodes[3].innerHTML);             
+            meals_selected_names.push(dishes[dish_index].childNodes[3].innerHTML);             
              
             /* -> childNodes[7] to select dish_section div .price 
                -> slice(3) to remove 'R$ '
                -> replace to change ',' to '.', since this number will be used as variable */
-            meals_selected_prices.push((dishes[i].childNodes[7].innerHTML.slice(3)).replace(",",".")); 
+            meals_selected_prices.push((dishes[dish_index].childNodes[7].innerHTML.slice(3)).replace(",",".")); 
         }
     }     
     return [meals_selected_names, meals_selected_prices];
