@@ -51,11 +51,11 @@ function add_remove_check(meal) {
 function check_if_order_is_over() {
     let meals_selected = 0;
     for(let dish_index in dishes) {
-        if(dishes[dish_index].classList.contains('selecionado')) {
-            meals_selected++; 
+        if(dishes[dish_index].classList.contains('dish_box_check')) {
+            meals_selected++;
         }
     }
-    return (meals_selected === 3); 
+    return (meals_selected === 3);
 }
 
 // 'releases' final orden button, turning it green and changing it's text
