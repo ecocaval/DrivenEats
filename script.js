@@ -51,11 +51,11 @@ function add_remove_check(meal) {
 function check_if_order_is_over() {
     let meals_selected = 0;
     for(let dish_index in dishes) {
-        if(dishes[dish_index].classList.contains('dish_box_check')) {
-            meals_selected++;
+        if(dishes[dish_index].classList.contains('selecionado')) {
+            meals_selected++; 
         }
     }
-    return (meals_selected === 3);
+    return (meals_selected === 3); 
 }
 
 // 'releases' final orden button, turning it green and changing it's text
@@ -130,16 +130,16 @@ function change_meals_prices(meals_prices_selected, meals_prices){
 
 // calculates the order total price by adding the dishes selected prices
 function calculate_final_order_total_price(meals_prices_selected){
-        let total_price = 0;
+    let total_price = 0;
 
-        for(let meal_price_index in meals_prices_selected) {
-            // the meals_prices array has string elements, so we must convert it
-            total_price += Number(meals_prices_selected[meal_price_index]);
-        }
-        // controls the quantity of decimal numbers being displayed
-        total_price = total_price.toFixed(2); 
-        
-        return total_price;        
+    for(let meal_price_index in meals_prices_selected) {
+        // the meals_prices array has string elements, so we must convert it
+        total_price += Number(meals_prices_selected[meal_price_index]);
+    }
+    // controls the quantity of decimal numbers being displayed
+    total_price = total_price.toFixed(2); 
+    
+    return total_price;        
 }
 
 // called when user clicks the 'Cancelar' button in the last confirmation screen
@@ -166,21 +166,21 @@ function ask_name_and_adress(){
 }
 
 function send_whatsapp_message(meals_names_selected, meals_prices_selected, name, address){
-        // creates a string containing all order info
-        let text_to_send = `Olá, gostaria de fazer o pedido:
-        - Prato: ${meals_names_selected[0]}
-        - Bebida: ${meals_names_selected[1]}
-        - Sobremesa: ${meals_names_selected[2]}
-        Total: R$ ${calculate_final_order_total_price(meals_prices_selected)}
-        
-        Nome: ${name}
-        Endereço: ${address}`;
+    // creates a string containing all order info
+    let text_to_send = `Olá, gostaria de fazer o pedido:
+    - Prato: ${meals_names_selected[0]}
+    - Bebida: ${meals_names_selected[1]}
+    - Sobremesa: ${meals_names_selected[2]}
+    Total: R$ ${calculate_final_order_total_price(meals_prices_selected)}
     
-        // converts the string to a text that can be sent through a whastapp link
-        text_to_send = encodeURIComponent(text_to_send);
-    
-        // opens the whatsapp website with the message containing all order info
-        window.open(`https://wa.me/554891427605?text=${text_to_send}`);
+    Nome: ${name}
+    Endereço: ${address}`;
+
+    // converts the string to a text that can be sent through a whastapp link
+    text_to_send = encodeURIComponent(text_to_send);
+
+    // opens the whatsapp website with the message containing all order info
+    window.open(`https://wa.me/554891427605?text=${text_to_send}`);
 }
 
 // checks the names of the meals that are selected
