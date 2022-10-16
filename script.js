@@ -16,7 +16,7 @@ function meal_clicked(meal) {
         search_and_unselect_selected_meals(option_dishes);
     }
     
-    // adds or removes green check in dish div and green check image
+    // adds or removes green check in dish div and green check mark
     add_remove_check(meal);
 
     // checks if order is over to control final order button
@@ -33,7 +33,7 @@ function search_and_unselect_selected_meals(dishes_to_look) {
     for(let i in dishes_to_look) {
         // checks if dish is selected looking for the selected box class
         if(dishes_to_look[i].classList.contains('dish_box_check')) {
-            // adds or removes green check in dish div and green check image
+            // adds or removes green check in dish div and green check mark
             add_remove_check(dishes_to_look[i]);
             // breaks the function since just only one meal can be selected
             break;
@@ -44,7 +44,7 @@ function search_and_unselect_selected_meals(dishes_to_look) {
 // adds or removes green check in dish div and green check image
 function add_remove_check(meal) {
     meal.classList.toggle('dish_box_check'); 
-    meal.childNodes[9].classList.toggle('display_none'); 
+    meal.childNodes[9].classList.toggle('display_none'); // childNodes[9] to select green check mark
 }
 
 // checks if there are 3 meals selected
@@ -66,7 +66,7 @@ function release_order_button() {
     order_button.innerHTML = 'Fechar o pedido';
 }
 
-// 'holds' final orden button
+// 'holds' final order button
 function hold_order_button() {
     const order_button = document.querySelector('.order_button');
     
@@ -188,7 +188,7 @@ function check_for_meals_selected() {
     let meals_selected_names = [];
     let meals_selected_prices = [];
 
-    // goes through all the meals in the page looking for the selected ones, than grabs it's prices
+    // goes through all the meals in the page looking for the selected ones, than grabs it's names and prices
     for(let i in dishes) {
         if(dishes[i].classList.contains('dish_box_check')) {
             // childNodes[3] to select dish_section h4
