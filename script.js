@@ -1,5 +1,5 @@
 // array variable containing all meals
-const dishes = Array.from(document.querySelectorAll('.dish\n\n\n'));
+const dishes = Array.from(document.querySelectorAll('.dish'));
 
 // called when the user clicks a meal
 function meal_clicked(meal) {
