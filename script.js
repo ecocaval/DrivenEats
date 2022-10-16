@@ -29,12 +29,12 @@ function meal_clicked(meal) {
 }
 
 // looks for meals of the same type that are selected, then unselect them
-function search_and_unselect_selected_meals(dishes_to_look) {
-    for(let dish_index in dishes_to_look) {
+function search_and_unselect_selected_meals(option_dishes) {
+    for(let dish_index in option_dishes) {
         // checks if dish is selected looking for the selected box class
-        if(dishes_to_look[dish_index].classList.contains('dish_box_check')) {
+        if(option_dishes[dish_index].classList.contains('dish_box_check')) {
             // adds or removes green check in dish div and green check mark
-            add_remove_check(dishes_to_look[dish_index]);
+            add_remove_check(option_dishes[dish_index]);
             // breaks the function since just only one meal can be selected
             break;
         }
