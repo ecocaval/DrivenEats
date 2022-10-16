@@ -3,7 +3,7 @@
 <p align = "center"><img src="images/project_pic.PNG"/></p>
 
 ## ✏️ Description
-<p align="justify" >This project was done in the third week of the Full Stack Driven course. An average of 15 hours were put into the website, the main goals were to train javascript web.  </p>
+<p align="justify" >This project was done in the third week of the Full Stack Driven course. An average of 15 hours were put into the website, the main goals were to train javascript web. The webiste is not responsive to larger screens, it is intended to work only on cellphones, since the main goal was to train JavaScript logic </p>
 
 ##  <p align = "left"> :white_circle: Technologies</p>
 
